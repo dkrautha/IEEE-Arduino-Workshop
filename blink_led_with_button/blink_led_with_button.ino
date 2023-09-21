@@ -1,6 +1,6 @@
 constexpr int TIMED_LED_PIN = LED_BUILTIN;  // the number of the LED pin
-constexpr int BUTTON_LED_PIN = 12;
-constexpr int BUTTON_PIN = 2;
+constexpr int BUTTON_LED_PIN = 8;
+constexpr int BUTTON_PIN = 3;
 
 struct LedTimerState {
   unsigned long previous_time;
@@ -51,7 +51,7 @@ void loop() {
   while (1) {
     timed_led_state = update_led(timed_led_state);
 
-    ButtonState button_state = static_cast<ButtonState>(digitalRead(BUTTON_LED_PIN));
+    ButtonState button_state = static_cast<ButtonState>(digitalRead(BUTTON_PIN));
     switch (button_state) {
       case HIGH:
         digitalWrite(BUTTON_LED_PIN, HIGH);
