@@ -7,11 +7,6 @@ struct LedTimerState {
   int led_state;
 };
 
-enum ButtonState {
-  Low = LOW,
-  High = HIGH,
-};
-
 LedTimerState
 update_led(LedTimerState state) {
   constexpr long interval = 1000;
@@ -51,7 +46,7 @@ void loop() {
   while (1) {
     timed_led_state = update_led(timed_led_state);
 
-    ButtonState button_state = static_cast<ButtonState>(digitalRead(BUTTON_PIN));
+    int button_state = digitalRead(BUTTON_PIN);
     switch (button_state) {
       case HIGH:
         digitalWrite(BUTTON_LED_PIN, HIGH);
