@@ -50,7 +50,7 @@ void loop() {
   }
 }
 
-void set_all_leds(uint8_t state) {
+void set_all_leds(const uint8_t state) {
   digitalWrite(LED_ONE_PIN, state);
   digitalWrite(LED_TWO_PIN, state);
   digitalWrite(LED_THREE_PIN, state);
@@ -103,7 +103,7 @@ ReadSequenceResult wrong_sequence() {
     delay(250);
   }
 
-  return ReadSequenceResult{ .level = 1, .velocity = 1000 };
+  return ReadSequenceResult{ .level = DEFAULT_LEVEL, .velocity = DEFAULT_VELOCITY };
 }
 
 ReadSequenceResult right_sequence(const int level, const int velocity) {
